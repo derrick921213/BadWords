@@ -1,2 +1,7 @@
 TNT: true
 BAD: true
+banned-words:
+  - cat
+  - dog
+  - worms
+  - daeshan

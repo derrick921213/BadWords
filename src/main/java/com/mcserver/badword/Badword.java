@@ -12,6 +12,7 @@ public final class Badword extends JavaPlugin {
         saveConfig();
         reloadConfig();
         getCommand("dk").setExecutor(new CommandClass(this));
+        getCommand("bd").setExecutor(new CommandClass(this));
         getServer().getPluginManager().registerEvents(new MyEvents(this),this);
     }
 

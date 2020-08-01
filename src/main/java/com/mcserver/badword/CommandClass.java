@@ -18,19 +18,19 @@ public class CommandClass implements CommandExecutor {
             if (sender instanceof Player && player.isOp()){
                 if (args.length < 1) {
                     player.sendMessage(ChatColor.AQUA + "{true | false}");
-                    return false;
+                    return true;
                 }
                 else if (args.length == 1) {
                     if (args[0].equals("true")) {
                         boolean TNT_enable = plugin.getConfig().getBoolean("TNT");
                         if (TNT_enable) {
                             player.sendMessage(ChatColor.YELLOW+"已經啟動了");
-                            return  false;
+                            return  true;
                         } else {
                             plugin.getConfig().set("TNT", true);
                             player.sendMessage(ChatColor.YELLOW+"以修改為true");
                             plugin.saveConfig();
-                            return false;
+                            return true;
                         }
                     }
                     else if (args[0].equals("false")){
@@ -39,11 +39,11 @@ public class CommandClass implements CommandExecutor {
                             plugin.getConfig().set("TNT", false);
                             player.sendMessage(ChatColor.YELLOW+"以修改為false");
                             plugin.saveConfig();
-                            return false;
+                            return true;
                         }
                         else {
                             player.sendMessage(ChatColor.YELLOW+"已經關閉了");
-                            return false;
+                            return true;
                         }
                     }
                     else{
@@ -52,6 +52,48 @@ public class CommandClass implements CommandExecutor {
                 }
                 else {
                     player.sendMessage("/dk {true | false}");
+                }
+            }
+            else{
+                player.sendMessage(ChatColor.RED+"請管理員來使用");
+            }
+        }
+        else if (command.getName().equalsIgnoreCase("bd")){
+            if (sender instanceof Player && player.isOp()){
+                if (args.length < 1) {
+                    player.sendMessage(ChatColor.AQUA + "{true | false}");
+                    return true;
+                }
+                else if (args.length == 1){
+                    if (args[0].equals("true")){
+                        boolean BAD_enable = plugin.getConfig().getBoolean("BAD");
+                        if (BAD_enable){
+                            player.sendMessage(ChatColor.YELLOW + "已經啟動了");
+                            return true;
+                        }
+                        else{
+                            plugin.getConfig().set("BAD", true);
+                            player.sendMessage(ChatColor.YELLOW+"以修改為true");
+                            plugin.saveConfig();
+                            return true;
+                        }
+                    }
+                    else if (args[0].equals("false")){
+                        boolean enable = plugin.getConfig().getBoolean("BAD");
+                        if (enable) {
+                            plugin.getConfig().set("BAD", false);
+                            player.sendMessage(ChatColor.YELLOW+"以修改為false");
+                            plugin.saveConfig();
+                            return true;
+                        }
+                        else {
+                            player.sendMessage(ChatColor.YELLOW+"已經關閉了");
+                            return true;
+                        }
+                    }
+                    else{
+                        player.sendMessage("{true | false}");
+                    }
                 }
             }
             else{
