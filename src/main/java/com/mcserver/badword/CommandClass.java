@@ -18,19 +18,19 @@ public class CommandClass implements CommandExecutor {
             if (sender instanceof Player && player.isOp()){
                 if (args.length < 1) {
                     player.sendMessage(ChatColor.AQUA + "{true | false}");
-                    return true;
+                    return false;
                 }
                 else if (args.length == 1) {
                     if (args[0].equals("true")) {
                         boolean TNT_enable = plugin.getConfig().getBoolean("TNT");
                         if (TNT_enable) {
                             player.sendMessage(ChatColor.YELLOW+"已經啟動了");
-                            return  true;
+                            return  false;
                         } else {
                             plugin.getConfig().set("TNT", true);
                             player.sendMessage(ChatColor.YELLOW+"以修改為true");
                             plugin.saveConfig();
-                            return true;
+                            return false;
                         }
                     }
                     else if (args[0].equals("false")){
@@ -39,11 +39,11 @@ public class CommandClass implements CommandExecutor {
                             plugin.getConfig().set("TNT", false);
                             player.sendMessage(ChatColor.YELLOW+"以修改為false");
                             plugin.saveConfig();
-                            return true;
+                            return false;
                         }
                         else {
                             player.sendMessage(ChatColor.YELLOW+"已經關閉了");
-                            return true;
+                            return false;
                         }
                     }
                     else{
@@ -58,6 +58,6 @@ public class CommandClass implements CommandExecutor {
                 player.sendMessage(ChatColor.RED+"請管理員來使用");
             }
         }
-        return true;
+        return false;
     }
 }

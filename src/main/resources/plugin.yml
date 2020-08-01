@@ -7,6 +7,6 @@ authors: [Derrick]
 description: 這個插件是一個擋不好的話，還有防止TNT爆炸
 commands:
   dk:
-    usage: /dk {true | false}
+    usage: /<command> [true | false]
   bd:
     usage: /bd {true | false}
