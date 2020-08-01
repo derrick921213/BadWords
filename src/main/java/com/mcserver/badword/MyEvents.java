@@ -8,6 +8,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
+
+import java.util.List;
 
 public class MyEvents implements Listener {
     private Badword plugin;
@@ -31,6 +34,21 @@ public class MyEvents implements Listener {
             if (material.equals(Material.TNT)){
                 block.setType(Material.AIR);
                 player.sendMessage(ChatColor.RED + "You cannot place TNT");
+            }
+        }
+    }
+    @EventHandler
+    public void chatEvent(AsyncPlayerChatEvent event){
+        String message = event.getMessage();
+        Player player = event.getPlayer();
+        boolean BAD_enable = plugin.getConfig().getBoolean("BAD");
+        List<String> wordlist = plugin.getConfig().getStringList("banned-words");
+        if (BAD_enable){
+            for (String bannedword : wordlist){
+                if (message.contains(bannedword)){
+                    event.setCancelled(true);
+                    player.sendMessage(ChatColor.RED + "You can not said that.");
+                }
             }
         }
     }
