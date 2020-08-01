@@ -1,0 +1,12 @@
+name: Badword
+version: 1.0
+main: com.mcserver.badword.Badword
+api-version: 1.13
+prefix: BadWord
+authors: [Derrick]
+description: 這個插件是一個擋不好的話，還有防止TNT爆炸
+commands:
+  dk:
+    usage: /dk {true | false}
+  bd:
+    usage: /bd {true | false}
