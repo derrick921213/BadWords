@@ -22,7 +22,7 @@ public class MyEvents implements Listener {
         Block block = event.getBlock();
         Material material = block.getType();
         Player player = event.getPlayer();
-        player.sendMessage(ChatColor.GRAY+"You hava broke "+ChatColor.YELLOW+material);
+        player.sendMessage(ChatColor.GRAY + "You break " + ChatColor.YELLOW + material);
     }
     @EventHandler
     public void blockplace(BlockPlaceEvent event){
